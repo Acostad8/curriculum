@@ -154,7 +154,7 @@ a{
     transition: all ease-in-out .5s;
 }
 .articulo:hover{
-    box-shadow: 0 40px 10px rgb(17,19,48);
+    box-shadow: 0 4px 10px rgb(17,29,48);
     color: #fff;
     background-color: #d03d3d;
     transition: .5s;
