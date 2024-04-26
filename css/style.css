@@ -65,7 +65,7 @@ a{
 
 .nav .enlaces-header a:hover{
     color: #fff;
-    background-color: #b94646;
+    background-color: #d03d3d;
     border-color: #d03d3d;
     transition: all ease-in-out .6s;
 }
@@ -377,8 +377,8 @@ a{
         clip-path: circle(150.0% at 0 0);
     }
     .nav .enlaces-header a{
-        color:#fff;
-        background-color: #d03d3d;
+        color:#d03d3d;
+        background-color: #fff;
         text-transform: uppercase;
         font-weight: 800;
         margin-top: 20px;
