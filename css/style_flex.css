@@ -4,6 +4,7 @@
 }
 body{
     padding: 10px;
+    background-color: chartreuse;
 }
 
 
@@ -46,4 +47,14 @@ body{
     background-color: red;
     order: 2;
 
+}
+
+@media screen and (max-width: 800px) {
+    body{
+        background-color: rgb(54, 77, 211);
+    }
+    .element{
+        border: 5px solid rgb(201, 53, 53) ;
+    }
+    
 }
