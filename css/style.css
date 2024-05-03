@@ -81,7 +81,6 @@ a{
 .hamburguer > i {
     font-size: 25px;
     line-height: 80px;
-    color: #d03d3d;
 }
 
 .titulospro{
@@ -119,7 +118,7 @@ a{
     margin: 0 0 0 30px;
 
 }
-.contenido-header{
+.contenido-header P{
     font-weight: 300px;
     margin-top: 14px;
     color: #5D6678;
