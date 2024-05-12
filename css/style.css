@@ -235,7 +235,11 @@ a{
 
 
 /* ################################## SKILLS ################################## */
+.habilidades {
+    background-color: antiquewhite;
+}
 .content-skills {
+    background-color: antiquewhite;
     display: flex; 
     flex-wrap: wrap; 
     margin-top: 50px;
@@ -271,20 +275,25 @@ a{
 }
 
 .skills img:hover {
+    color: white;
     transition-duration: .7s;
     transform: rotate(360deg);
 }
 
 .skills:hover {
     box-shadow: 0 4px 10px rgba(17, 29, 48, .26);
-    color: #fff;
     background: #d03d3d;
+    color: white;
     transition: .5s;
+}
+.skills:hover h2 {
+    color: white;
 }
 
 /* ################################## CERTIFICADOS ################################## */
 .certificados {
-    background: #f2f2f2;
+    background: #d03d3d;
+    color: #fff;
     /* padding: 0 100px; */
 }
 
