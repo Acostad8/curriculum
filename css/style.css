@@ -27,6 +27,7 @@ header::before{
     margin-bottom:80px ;
 }
 
+
 /*""""""""""""" MENU DE NAVEGACION """"""""""""" */
 nav{
     width: 100%;
@@ -118,6 +119,13 @@ a{
     margin: 0 0 0 30px;
 
 }
+.contenido-header img{
+    width:300px;
+    height:300px;
+    border-radius:150px;
+    
+}
+
 .contenido-header P{
     font-weight: 300px;
     margin-top: 14px;
