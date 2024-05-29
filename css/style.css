@@ -158,18 +158,20 @@ a{
 }
 
 .educacion{
-    background-color: antiquewhite;
+    background-color: #d03d3d;
+    color: #fff;
 }
 .content-education{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;    
     margin-bottom: 50px;
     justify-content: space-around;
 
 }
 .articulo{
     width: 30%;
-    background-color: #fff;
+    background-color: white;
+    color: black;
     margin-top: 50px;
     border-radius: 10px;
     padding: 45px 30px 60px 30px;
@@ -177,7 +179,7 @@ a{
 }
 .articulo:hover{
     box-shadow: 0 4px 10px rgb(17,29,48);
-    color: #fff;
+    color: white;
     background-color: #d03d3d;
     transition: .5s;
     
