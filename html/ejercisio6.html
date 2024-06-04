@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+
+
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            height: 600px;
+            width: 400px;
+            border-radius: 20px;
+            border: 2px solid gray ;
+            box-shadow:  0 0 10px gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px ;
+        }
+
+        .colum{
+            display: flex;
+            justify-content: space-around;
+            height: 400px;
+            width: 400px;
+            border: 2px solid red;
+            border-radius: 25px;
+            font-size: 18px;
+            gap: 50px;
+            
+            
+
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <input type="text" id="caja_uno">
+            <input type="text" id="caja_dos">
+          
+        </div>
+
+        <h3>ZONA DE IMPRESION </h3>
+        <div id="print_name"></div>
+        <label id="cant"></label>
+        <div id="print"></div>
+        <div id="tabla"></div>
+
+        <div class="colum">
+            <div id="pares">
+                <h1>pares</h1>
+
+            </div>
+                
+
+            <div id="impares">
+                <h1>impares</h1>
+            </div>
+        </div>
+       
+        <button onclick="enviar()">ENVIAR</button>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+
+        function enviar(){
+            let caja_uno = document.getElementById("caja_uno").value.trim();
+            let caja_dos = document.getElementById("caja_dos").value.trim();
+
+
+
+            let cadenapar = " ";
+            let cadenaimpar = " ";
+            let valor = "";
+            for(i=caja_uno ; i<=caja_dos ; i++){
+
+                if( i % 2 == 0 ){
+                    cadenapar+= i + " es par" + "\n";
+                }else{
+                    cadenaimpar+= i + " es impar " + "\n";
+                }
+
+             
+
+            }
+            document.getElementById("pares").innerText = cadenapar;
+            document.getElementById("impares").innerText = cadenaimpar;
+
+
+
+
+
+
+
+         
+
+
+
+       
+
+
+
+        }
+    </script>

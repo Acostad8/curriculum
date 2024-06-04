@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIOS</title>
+    <!-- //estilos de css// -->
+    <style>
+
+
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            height: 600px;
+            width: 400px;
+            border-radius: 20px;
+            border: 2px solid gray ;
+            box-shadow:  0 0 10px gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px ;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- ETIQUETAS HTML -->
+    <div class="container">
+        <div class="row">
+            <input type="text" id="caja_uno">
+            <input type="text" id="caja_dos">
+        </div>
+
+        <h3>ZONA DE IMPRESION </h3>
+        <div id="print_name"></div>
+        <label id="cant"></label>
+        <div id="print"></div>
+        <div id="tabla"></div>
+        <button onclick="enviar()">ENVIAR</button>
+
+
+    </div>
+
+
+
+
+
+   <!-- codigo js -->
+    <script>
+
+        function enviar(){
+            let caja_uno = document.getElementById("caja_uno").value.trim();
+            let caja_dos = document.getElementById("caja_dos").value.trim();
+            let concat = caja_uno + caja_dos;
+
+            document.getElementById("print_name").innerText = caja_uno.toUpperCase() + " " + caja_dos.toUpperCase();
+            document.getElementById("cant").innerText = "tiene " + concat.length + " caracteres";
+
+            
+
+            let number = "";
+            for(let i=1; i<=20; i++){
+
+                cadena += concat.length * i ; 
+
+            }
+            
+            document.getElementById("print").innerText = concat.length + " x " + i + " = " + cadena;
+
+
+       
+
+
+
+        }
+    </script>
+</body>
+</html>
