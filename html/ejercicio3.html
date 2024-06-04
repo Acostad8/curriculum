@@ -3,14 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <style>
         * {
             margin: 0;
             padding: 0;
-
         }
 
         body {
@@ -18,20 +17,21 @@
             height: 100vh;
             justify-content: center;
             align-items: center;
-            background-color: rgb(87, 175, 121); 
-       
+            background-color: rgb(88, 87, 168);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
         }
 
         .container {
-            background-color: rgb(206, 248, 206);
-            height: 300px;
-            width: 300px;
+            height: 400px;
+            width: 400px;
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 20px;
             box-shadow: 0 0 5px gray;
             padding: 50px;
+            background-color: rgb(144, 152, 223);
 
         }
 
@@ -56,6 +56,30 @@
             display: block;
             font-size: 14px;
         }
+        input{
+            font-size: 20px;
+            border-radius: 15px;
+            display: flex;
+            border: 2px rgb(190, 166, 221);
+            padding: 5px;
+        }
+        button{
+            font-size: 15px;
+            border-radius: 25px;
+            padding: 7px;
+            border: 2px black;
+
+        }
+        button:hover{
+            background-color: rgb(185, 151, 218);
+            color: white;
+        }
+        label{
+            font-size: 20px;
+        }
+
+        
+
     </style>
 </head>
 
@@ -64,54 +88,54 @@
         <form id="formValidate">
             <h3>FORMULARIO DE DATOS</h3>
             <div class="row">
-                <label for="">Nombres: </label>
-                <input type="text" id="name" name="name">
+                <label for="">Nombres:</label>
+                <input type="text" id="name" name="name" placeholder="Ingrese su nombre:">
             </div>
             <div class="row">
-                <label for="">Apellidos: </label>
-                <input type="text" id="apellido" name="apellido">
+                <label for="">Apellidos:</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido:">
             </div>
             <div class="row">
-                <label for="">Correo: </label>
-                <input type="email" id="correo" name="correo">
+                <label for="">Correo:</label>
+                <input type="email" id="correo" name="correo" placeholder="ingrese su correo:">
             </div>
             <div class="row">
-                <label for="">Teléfono: </label>
-                <input type="text" id="telefono" name="telefono">
+                <label for="">Telefono:</label>
+                <input type="text" id="telefono" name="telefono" placeholder="Ingrese su telefono:">
             </div>
-            <button  type="button" id="enviar" onclick="salida()">ENVIAR</button>
+            <button type="button" id="enviar" onclick="salida()">ENVIAR</button>
             <div class="row">
                 <h4 id="entrada"></h4>
-                <h4 id="salida"> </h4>
-                <h4 id="diferencia"> </h4>
+                <h4 id="salida"></h4>
+                <h4 id="diferencia"></h4>
             </div>
         </form>
     </div>
 
+
+
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+
     <script>
         $(document).ready(function () {
-            $("#formValidate").validate({ //Metodo para validar el formulario
+            $("#formValidate").validate({
                 rules: {
-                    name: { required: true, minlength: 3 },
-                    apellido: { required: true, minlength: 3 },
-                    correo: { required: true, email: true },
-                    telefono: { required: true, minlength: 10, maxlength: 10 }
-
+                    name: {required: true ,minlength: 3},
+                    apellido: {required: true , minlength: 3},
+                    correo: {required: true , email: true},
+                    telefono: {required: true ,minlength: 10 , maxlength:10}
                 },
                 messages: {
                     name: {
                         required: "El campo es requerido",
-                        minlength: "Mínimo escriba 3 caracteres"
+                        minlength: "Minnimo escriba 3 caracteres"
                     },
                     apellido: {
                         required: "El campo es requerido",
-                        minlength: "Mínimo escriba 3 caracteres"
+                        minlength: "Minimo escriba 3 caracteres"
                     },
                     correo: {
                         required: "El campo es requerido",
@@ -120,16 +144,17 @@
                     telefono: {
                         required: "El campo es requerido",
                         minlength: "El tamaño debe ser de 10 caracteres",
-                        maxlength: "El tamaño deber ser de 10 caracteres",
-                        number: "Digite solo numeros"
+                        maxlength: "El tamaño debe ser de 10 caracteres",
+                        Number: "Digite solo numeros"
                     }
+
                 }
             })
             $("#enviar").click(function () {
-                if ($("#formValidate").valid()) {
-                    alert("LOS CAMPOS ESTÁN BIEN");
+                if($("#formValidate").valid()){
+                    alert("LOS CAMPOS ESTAN BIEN")
                 }
-                else {
+                else{
                     // Swal.fire({
                     //     title: "Hay campos por diligenciar",
                     //     icon: "error",
@@ -137,50 +162,48 @@
                     //     showConfirmButton: false
 
                     // })
+
                 };
             });
         });
 
 
 
-        var hora_inicial;
 
-        function load_page() {
+        var hora_inicial
+        
+        function load_page(){
             hora_inicial = new Date();
             document.getElementById("entrada").innerText = hora_inicial;
-
-
         }
 
 
         function salida(){
-            let hora_salida = new Date()
-            let dia = hora_inicial.getDay(); //terminar importante
+            let hora_salida  = new Date()
+            let dia = hora_inicial.getDay();
             document.getElementById("salida").innerText = new Date();
 
-            let diferencia = hora_salida  - hora_inicial;
+
+            let diferencia =   hora_salida - hora_inicial;
 
             let dif_seg = Math.floor(diferencia / 1000);
             let dif_min = Math.floor(dif_seg / 60);
             let dif_hora = Math.floor(dif_min / 60);
-            
 
             let seg_restante = dif_seg % 60;
             let min_restante = dif_min % 60;
 
-            let resultado = "diferencia: " + dif_hora + ":" + min_restante + ":" + seg_restante;
+            let resultado  = "Diferencia: " + dif_hora + ":" + min_restante + ":" + seg_restante;
 
             Swal.fire("" + resultado)
-            
 
-
-
-            document.getElementById("diferencia").innerText = resultado;
-
+            document.getElementById("diferencia").innerText = resultado ;
         }
-
-
     </script>
+
+
+
+
 </body>
 
 </html>
