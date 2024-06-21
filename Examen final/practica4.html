@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contenendor {
+            height: 500px;
+            width: 500px;
+            border: 2px solid black;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* flex-direction: column; */
+            gap: 20px;
+
+        }
+    </style>
+
+
+
+
+    <div class="contenendor">
+        <form id="formValidate">
+            <div class="form">
+                <label for="">Ingrese nombre</label>
+                <input type="text" id="name">
+            </div>
+            <div class="form">
+                <label for="">Ingrese egundo nombre</label>
+                <input type="text" id="secondname">
+            </div>
+            <div class="form">
+                <label for="">Ingrese apellido</label>
+                <input type="text" id="lastname">
+            </div>
+            <div class="form">
+                <label for="">Ingrese segundo apellido</label>
+                <input type="text" id="secondlastname">
+            </div>
+
+            <button id="enviar" onclick="calcular()">ENVIAR</button>
+
+            <div class="impresiones">
+                <h1>zona de impresiones</h1>
+                <div class="print" id="print"></div>
+                <div class="cantidad" id="cantidad"></div>
+            </div>
+
+        </form>
+
+
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+          
+
+
+        </script>
+    </div>
+
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NUMEROS PRIMOS</title>
 </head>
 
 
@@ -39,7 +39,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            
+             
         }
     </style>
 
@@ -85,6 +85,15 @@
                 document.getElementById("printPrimos").innerText = primos.join(", ");
                 document.getElementById("countPrimos").innerText = count;
             } else {
+
+                Swal.fire({
+                    tile: "Hay un Error",
+                    text: "ingrese un valor numerico entero",
+                    icon: "error",
+                    showBottonConfirm : false,
+                    timer: 2000,
+                })
+                document.getElementById("numero").style.border = "2px solid red";
                 document.getElementById("printPrimos").innerText = "Por favor, ingrese un número entero positivo.";
                 document.getElementById("countPrimos").innerText = "";
             }
