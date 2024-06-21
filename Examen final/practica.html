@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contenedor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 500px;
+            width: 500px;
+            border: 2px solid gray;
+            border-radius: 20px;
+            gap: 10px;
+
+
+        }
+    </style>
+
+    <div class="contenedor">
+        <h3>VALIDACION DE FORMULARIO</h3>
+        <div class="form">
+            <label for="">ingrese su normbe</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="form">
+            <label for="">ingrese su apellido</label>
+            <input type="text" id="lastname" name="lastname">
+        </div>
+     
+        <button onclick="calcular()">ENVIAR</button>
+
+
+        <h3>ZONA DE IMPRESION</h3>
+        <div class="printname" id="printname"></div>
+        <p>Cantidad caracteres</p><div class="cantidad" id="cantidad"></div>
+        <p>tablas: </p><div class="tablas" id="tablas"></div>
+
+        <script>
+            function calcular() {
+
+
+                let name = document.getElementById("name").value.trim();
+                let lastname = document.getElementById("lastname").value.trim();
+
+                if (name.length < 5 || isNaN(name)) {
+                    Swal.fire({
+                        title: "Hay un Error",
+                        text: "algunas cajas de texto estan vacias , ingrese almenos 5 caracteres",
+                        icon: "error",
+                    });
+                    document.getElementById("name").style.border = "2px solid red";
+                    // document.getElementById("lastname").style.border = "2px solid red";
+
+                    if(lastname.length < 5 || isNaN(lastname)){
+                        document.getElementById("lastname").style.border = "2px solid red";
+
+
+                    }else{
+                        document.getElementById("lastname").style.border = "2px solid green"
+
+                    }
+
+
+
+                }else{
+                    document.getElementById("name").style.border = "2px solid green"
+                    // document.getElementById("lastname").style.border = "2px solid green"
+
+                   
+
+
+                    let cadena = "";
+
+                    cadena = name.toUpperCase() + " " + lastname.toUpperCase();
+                    document.getElementById("printname").innerText = name.toUpperCase() + " " + lastname.toUpperCase();
+                    document.getElementById("cantidad").innerText = cadena.length;
+
+                    Swal.fire({
+                        text: cadena,
+                        showConfirmButton: false,
+                        timer: 2000,
+
+
+                    })
+
+                    let n1 = 1;
+                    let valor = "";
+                    let resultado = "";
+                    for(let i = 1 ; i<=10; i++){
+                        n1 = cadena.length;
+                        valor = n1 * i;
+                        resultado += n1 + " * " + i + " = " + valor + "\n";
+
+
+                    }
+                    document.getElementById("tablas").innerText = resultado;
+
+
+                    if(cadena.length % 1 == cadena.length && cadena.length % cadena.length == cadena.length){
+
+                    }
+                }
+            }
+        </script>
+
+
+
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </div>
+
+</body>
+
+</html>

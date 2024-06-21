@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contenerdor {
+            height: 400px;
+            width: 400px;
+            border: 2px solid grey;
+            border-radius: 20px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .formulario {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .botones {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            padding: 15px;
+            gap: 5px;
+        }
+
+
+        input.error {
+            border: 2px solid red;
+            color: red;
+            font-weight: 300px;
+        }
+
+        label.error {
+            color: red;
+            margin-top: 1px;
+            display: block;
+            font-size: 14px;
+        }
+    </style>
+
+
+    <div class="contenerdor">
+        <form id="formValidate">
+            <h3>FORMULARIO DE DATOS</h3>
+
+
+            <div class="formulario">
+                <label for="">ingrese su nombre:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="formulario">
+                <label for="">ingrese su segundo nombre:</label>
+                <input type="text" id="secondname" name="secondname">
+            </div>
+            <div class="formulario">
+                <label for="">ingrese su apellido:</label>
+                <input type="text" id="lastname" name="lastname">
+            </div>
+            <div class="formulario">
+                <label for="">ingrese su segundo apellido:</label>
+                <input type="text" id="secondlastname" name="secondlastname">
+            </div>
+
+            <div class="botones">
+                <button type="button" id="enviar" onclick="enviar()">ENVIAR</button>
+                <button onclick="limpiar()">limpiar</button>
+            </div>
+
+
+            <h3>ZONA DE IMPRESION</h3>
+            <div class="print_name" id="print_name"></div>
+            <div class="resultado" id="resultado"></div>
+            <div class="print_cant" id="print_cant"></div>
+
+        </form>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            $(document).ready(function () {
+                $("#formValidate").validate({
+                    rules: {
+                        name: { required: true, minlength: 5 },
+                        secondname: { required: true, minlength: 5 },
+                        lastname: { required: true, minlength: 5 },
+                        secondlastname: { required: true, minlength: 5 }
+                    },
+                    menssages: {
+                        name: {
+                            required: "El campo es requerido",
+                            minlength: "minimo escriba 5 caracteres"
+
+                        },
+                        secondname: {
+                            required: "El campo es requerido",
+                            minlength: "Escriba minimo 5 caracteres"
+                        },
+                        lastname: {
+                            required: "El campo es rxequerido",
+                            minlength: "Escriba minimo 5 caracteres"
+                        },
+                        secondlastname: {
+                            required: "El campo es requerido",
+                            minlength: "Escriba minimo 5 caracteres"
+                        }
+                    }
+
+                })
+                $("#enviar").click(function () {
+                    if ($("#formValidate").valid()) {
+                        // alert("Los Campos estan bien")
+                        let name = document.getElementById("name").value.trim();
+                        let secondname = document.getElementById("secondname").value.trim();
+                        let lastname = document.getElementById("lastname").value.trim();
+                        let secondlastname = document.getElementById("secondlastname").value.trim();
+
+                        let cadena = name.toUpperCase() + " " + secondname.toUpperCase() + " " + lastname.toUpperCase() + " " + secondlastname.toUpperCase();
+
+                        // document.getElementById("print_name").innerText = "primer nombre: " +  name.toUpperCase() + " segundo nombre : " + secondname.toUpperCase() + " primer apellido :  " + lastname.toUpperCase() + " segundo apellido : " + secondlastname.toUpperCase();
+
+
+                        let resultado = "";
+                        for(let i ; i<=cadena.length; i++){
+                            resultado =  cadena.split(" ", i) + "<br>";
+
+                        }
+                        document.getElementById("resultado").innerText = resultado;
+
+                        document.getElementById("print_name").innerText = name.toUpperCase() + " " + secondname.toUpperCase() + " " + lastname.toUpperCase() + " " + secondlastname.toUpperCase();
+                        document.getElementById("print_cant").innerText = "cantidad de caracteres: " + cadena.length;
+
+                        Swal.fire({
+                            title: cadena,
+                            // icon: "check",
+                            timer: 1500,
+                            showConfirmButton: false
+
+                        })
+                    } else {
+                        Swal.fire({
+                            title: "Hay campos por diligenciar",
+                            icon: "check",
+                            timer: 1500,
+                            showConfirmButton: false
+
+                        })
+
+                    };
+                });
+            });
+
+            function limpiar() {
+                document.getElementById("name").value = "";
+                document.getElementById("secondname").value = "";
+                document.getElementById("lastname").value = "";
+                document.getElementById("secondlastname").value = "";
+                document.getElementById("print_name").value = "";
+                document.getElementById("print_cant").value = "";
+            }
+        </script>
+    </div>
+
+</body>
+
+</html>

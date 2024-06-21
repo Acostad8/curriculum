@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+     body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Serie de Fibonacci</h1>
+        <p>Introduce la cantidad de números de Fibonacci que deseas generar:</p>
+        <input type="text" id="cantidad" min="0" value="20">
+        <button onclick="generarFibonacci()">Generar</button>
+        <div class="result" id="resultado"></div>
+        <h1>Impares:</h1>
+        <div class="result2" id="resultado2"></div>
+    </div>
+    
+
+    <script>
+
+    function generarFibonacci() {
+
+    const cantidad = document.getElementById('cantidad').value;
+    const resultado = document.getElementById('resultado');
+
+    if (cantidad == 0) {
+        Swal.fire({
+            title: "Campos vacios",
+            text: "Algunos de los campos se encuentran vacios",
+            icon: "error", 
+        });
+    } 
+
+    if (cantidad < 1) {
+        resultado.innerHTML = 'Por favor, introduce un número mayor o igual a 1.';
+        return;
+    }
+
+    let n1 = 0, n2 = 1, siguiente;
+    let serie = '0';
+
+    if (cantidad > 1) {
+        serie += '1';
+    }
+
+    for (let i = 2; i < cantidad; i++) {
+        siguiente = n1 + n2;
+        serie += ${" " + siguiente + " "};
+        n1 = n2;
+        n2 = siguiente;
+    }
+
+    resultado.innerHTML = ${" " + serie + " "};
+
+
+    for(f = 0 ; f <= serie ; f ++){
+        if( serie %2 != 0){
+            impares += serie + "\n";
+        }
+    }  
+        document.getElementById("resultado2").innerText= impares;
+        
+}
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

@@ -89,18 +89,18 @@ function send_form() {
             icon: "error"
         });
 
-        // if (name.length == 0) {
-        //     document.getElementById("name").style.border = "2px solid red"
-        // }
-        // else {
-        //     document.getElementById("name").style.border = "2px solid green"
-        // }
-        // if (last_name.length == 0) {
-        //     document.getElementById("last_name").style.border = "2px solid red"
-        // }
-        // else {
-        //     document.getElementById("last_name").style.border = "2px solid green"
-        // }
+        if (name.length == 0) {
+            document.getElementById("name").style.border = "2px solid red"
+        }
+        else {
+            document.getElementById("name").style.border = "2px solid green"
+        }
+        if (last_name.length == 0) {
+            document.getElementById("last_name").style.border = "2px solid red"
+        }
+        else {
+            document.getElementById("last_name").style.border = "2px solid green"
+        }
 
     }else if(pass_one != pass_two){
         Swal.fire({

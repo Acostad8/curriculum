@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+
+<body>
+
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 500px;
+            width: 500px;
+            border: 2px solid grey;
+            border-radius: 20px;
+
+            flex-direction: column;
+            gap: 10px;
+
+        }
+
+        .impresion{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+    </style>
+
+    <div class="container">
+        <div class="form">
+            <label for="Numero">Ingresa un valor</label>
+            <input type="text" id="numero" name="numero">
+        </div>
+        <div class="impresion">
+            <button onclick="calcularPrimo()">SACAR PRIMOS</button>
+            Numeros primos: <label id="printPrimos"></label>
+            Cantidad de numeros Primos: <label id="countPrimos"></label>
+        </div>
+
+
+    </div>
+    
+
+
+
+    <script>
+        function calcularPrimo() {
+
+            let number = document.getElementById("numero").value.trim();
+            let n = parseInt(number);
+            let primos = [];
+            let count = 0;
+
+            if (!isNaN(n) && n > 0) {
+                for (let i = 2; i <= n; i++) {
+                    let esPrimo = true;
+                    for (let j = 2; j < i; j++) {
+                        if (i % j === 0) {
+                            esPrimo = false;
+                            break;
+                        }
+                    }
+                    if (esPrimo) {
+                        primos.push(i);
+                        count++;
+                    }
+                }
+                document.getElementById("printPrimos").innerText = primos.join(", ");
+                document.getElementById("countPrimos").innerText = count;
+            } else {
+                document.getElementById("printPrimos").innerText = "Por favor, ingrese un número entero positivo.";
+                document.getElementById("countPrimos").innerText = "";
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

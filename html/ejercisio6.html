@@ -23,7 +23,7 @@
             border-radius: 20px;
             border: 2px solid gray ;
             box-shadow:  0 0 10px gray;
-            display: flex;
+            display: flex; 
             justify-content: center;
             align-items: center;
             flex-direction: column;
@@ -66,12 +66,14 @@
         <div class="colum">
             <div id="pares">
                 <h1>pares</h1>
+                <label id="print_pares"></label>
 
             </div>
                 
 
             <div id="impares">
                 <h1>impares</h1>
+                <label  id="print_impares"></label>
             </div>
         </div>
        
@@ -108,8 +110,8 @@
              
 
             }
-            document.getElementById("pares").innerText = cadenapar;
-            document.getElementById("impares").innerText = cadenaimpar;
+            document.getElementById("print_pares").innerText = cadenapar;
+            document.getElementById("print_impares").innerText = cadenaimpar;
 
 
 

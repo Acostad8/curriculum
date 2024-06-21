@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .contenedor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
+            width: 400px;
+            gap: 10px;
+            flex-direction: column;
+            border: 2px solid grey;
+            border-radius: 20px;
+            padding: 50px;
+
+        }
+
+        .impresion {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+        }
+    </style>
+
+    <div class="contenedor">
+        <div class="form">
+            <label for="">Ingrese un valor:</label>
+            <input type="text" id="numero" placeholder="Ingrese un valor">
+        </div>
+        <button id="calcular" onclick="calcular()">Enviar</button>
+        <div class="impresion">
+            <h1>zona de impresion</h1>
+            Resultado: <label id="print"></label>
+            Pares: <label id="even"></label>
+            Impares: <label id="odd"></label>
+        </div>
+    </div>
+
+
+    <script>
+
+        function calcular() {
+
+            let valuenumber = document.getElementById("numero").value;
+            parseInt("valuenumber");
+
+            if (isNaN(valuenumber) || valuenumber < 1) {
+                document.getElementById("numero").style.border = "2px solid red";
+                document.getElementById("numero").focus();
+
+                Swal.fire({
+                    title: "Hay un error",
+                    text: "Ingrese un valor numerico mayor o igual a 1",
+                    icon: "error",
+
+                })
+
+
+            } else {
+                document.getElementById("numero").style.border = "2px solid green";
+
+                let n = document.getElementById("numero").value;
+                let n1 = 0;
+                let n2 = 1;
+                let n3 = 0;
+
+                let resultado = "";
+                let par = "";
+                let impar = "";
+
+                for (let i = 1; i <= n; i++) {
+                    n3 = n1 + n2;
+                    resultado += n1 + " + " + n2 + " = " + n3 + "\n";
+
+                    if (n3 % 2 === 0) {
+                        par+=n3 + "\n";
+
+                    } else {
+                        impar+=n3  + "\n";
+                        // odd = accoOdd;
+                    }
+
+                    n1 = n2;
+                    n2 = n3;
+
+
+
+
+                }
+                document.getElementById("print").innerText = resultado;
+                document.getElementById("even").innerText = "\n" + par;
+                document.getElementById("odd").innerText = "\n" + impar;
+
+            
+
+
+
+
+                //     let n = document.getElementById("numero").value;
+                //     let a = 0;
+                //     let b = 1;
+                //     let c = 0;
+                //     let resultado = "";
+
+                //     for (let i = 1; i <= n; i++) {
+                //         c = a + b;
+                //         resultado += a + " + " + b + " = " + c + "\n";
+                //         a = b;
+                //         b = c;
+                //     }
+                //     document.getElementById("print").innerText = resultado;
+            }
+
+        }
+    </script>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>
